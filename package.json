@@ -1,0 +1,19 @@
+{
+  "name": "guideApp-master",
+  "version": "1.0.0",
+  "description": "frameworks: 1. express (svi) 2. body_parser (svi) 3. mongoose (mladen) 4. bcrypt (dalibor) 5. passport (?) (dalibor) 6. oath2 (stefan) 7. multer (mladen)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.17",
+    "multer": "^1.4.1"
+  }
+}

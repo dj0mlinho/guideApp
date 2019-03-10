@@ -12,10 +12,9 @@ angular.module("guideApp")
                     url: "/" + action,
                     method: "post",
                     data: {
-                        "data": credidentials
-                        // "username": credidentials.username,
-                        // "password": credidentials.password,
-                        // "image": credidentials.image
+                        "fullName": credidentials.fullName,
+                        "password": credidentials.password,
+                        "image": credidentials.image
                     }
                 });
             }

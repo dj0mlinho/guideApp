@@ -23,7 +23,12 @@ var imgUpload = multer({ dest: "uploads/"});
 
 
 // mongoose connection
-mongoose.connect("mongodb://localhost/quiz", { useNewUrlParser: true}).then((connection) => {
+const url = "mongodb+srv://highCheetah:python3%2E6bili@cluster0-u4dcx.mongodb.net/test?retryWrites=true";
+mongoose.connect(url, 
+    { 
+        useNewUrlParser: true,  
+        dbName: "guideApp"
+    }).then((connection) => {
     if (connection) {
         console.log("Connected to mongoDb");
     }
@@ -35,12 +40,12 @@ mongoose.connect("mongodb://localhost/quiz", { useNewUrlParser: true}).then((con
 });
 // mongoose Schemas / models
 const userSchema = mongoose.Schema({
-    "username": String,
+    "fullName": String,
     "password": String
 });
 const userModel = mongoose.model("users", userSchema);
 const adimnSchema = mongoose.Schema({
-    "username": String,
+    "fullName": String,
     "password": String
 });
 const adminModel = mongoose.model("admins", adimnSchema);
@@ -55,6 +60,7 @@ app.post("/userLogin", (req, res) => {
 });
 app.post("/userRegistration", imgUpload.single("avatar"), (req, res) => {
     // imgUpload.fields({"name": "images"}, {"maxCount": 4})
+    console.log(req);
     responder.userRegistration(req, res, userModel);
 });
 

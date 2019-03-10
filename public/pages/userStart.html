@@ -1,5 +1,7 @@
-<input type="text" placeholder="username">
-<input type="password" placeholder="password">
-<input type="file" formenctype="multipart/form-data">
-<button type="button" ng-click="userLogReg('userLogin')">Login</button>
-<button type="button" ng-click="userLogReg('userRegistration')">Registration</button>
+<form action="/userRegistration" method="POST" formenctype="multipart/form-data" test-form>
+    <input type="text" placeholder="username" name="fullName"  ng-model="userData.fullName">
+    <input type="password" placeholder="password" name="password" ng-model="userData.password">
+    <input type="file">
+    <button type="submit">Login</button>
+    <button type="submit" >Registration</button>
+</form>

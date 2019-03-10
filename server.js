@@ -40,28 +40,38 @@ mongoose.connect(url,
 });
 // mongoose Schemas / models
 const userSchema = mongoose.Schema({
-    "fullName": String,
-    "password": String
+    "firstName": String,
+    "lastName": String,
+    "password": String,
+    "email": String,
+    "telephone": String,
+    "licenceNum": Number,
+    "destinations": Array,
+    "approved": {
+        "type": Boolean,
+        "default": false
+    },
+    "registerDate": {
+        "type": Date,
+        "default": Date.now
+    }
 });
-const userModel = mongoose.model("users", userSchema);
+const UserModel = mongoose.model("users", userSchema);
 const adimnSchema = mongoose.Schema({
     "fullName": String,
     "password": String
 });
-const adminModel = mongoose.model("admins", adimnSchema);
-
-
+const AdminModel = mongoose.model("admins", adimnSchema);
 
 
 // login/registration requests
 app.post("/userLogin", (req, res) => {
 
-    responder.userLogin(req, res, userModel);
+    responder.userLogin(req, res, userModel, mongoose);
 });
-app.post("/userRegistration", imgUpload.single("avatar"), (req, res) => {
-    // imgUpload.fields({"name": "images"}, {"maxCount": 4})
-    console.log(req);
-    responder.userRegistration(req, res, userModel);
+app.post("/userRegistration", (req, res) => {
+    
+    responder.userRegistration(req, res, UserModel);
 });
 
 

@@ -7,14 +7,13 @@ angular.module("guideApp")
             // admin/user login/registration attempt
             logReg: (action, credidentials) => {
                 // object for data with no empty keys
-                console.log(credidentials)
                 return $http({
                     url: "/" + action,
                     method: "post",
                     data: {
-                        "fullName": credidentials.fullName,
-                        "password": credidentials.password,
-                        "image": credidentials.image
+                        "firstName": credidentials.firstName,
+                        "lastName": credidentials.lastName,
+                        "password": credidentials.password
                     }
                 });
             }

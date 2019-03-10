@@ -2,26 +2,29 @@
 
 angular.module("guideApp")
     .controller("userStartCtrl", function ($scope, db, validator) {
-        
-
+        // controlling login/register view show/hide
         $scope.userData = {
-            fullName: "",
-            password: "",
-            image: ""
-        }
+            firstName: "",
+            lastName: "",
+            password: ""
+        };
     })
-    .directive("testForm", ["$document", "db", function($document, db) {
+    .directive("registerForm", ["$document", "db", function($document, db) {
         return {
 
-            link : (scope, element) => {
+            link : ($scope, element) => {
 
                 element.on("submit", (event) => {
                     event.preventDefault();
-                    let user = new FormData();
-                    user.fullName = event.originalTarget["0"].value;
-                    user.password = event.originalTarget["1"].value;
-                    user.image = event.originalTarget["2"].value;
-                    db.logReg("userRegistration", user).then((res) => {
+                    // validation
+                    // let err = validation.isThereerr();
+                    // if (err) {
+                    //     // display error
+                    // } else {
+                    //     db.logReg();
+                    // }
+                    let action = event.explicitOriginalTarget.getAttribute("data-action");
+                    db.logReg(action, $scope.userData).then((res) => {
                         console.log(res.data);
                     })
                 })

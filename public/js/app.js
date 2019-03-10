@@ -7,7 +7,11 @@ angular.module("guideApp", [
     $locationProvider.hashPrefix("");
     $routeProvider.
     when("/", {
-        templateUrl: "pages/userStart.html",
+        templateUrl: "pages/login.html",
+        controller: "userStartCtrl"
+    })
+    .when("/register", {
+        templateUrl: "pages/register.html",
         controller: "userStartCtrl"
     })
     .when("/admin", {

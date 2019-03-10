@@ -21,9 +21,14 @@ function userLogin(req, res, mongooseModel) {
 
 function userRegistration(req, res, mongooseModel) {
 
-    console.log(req.body);
-    console.log(req.file);
-    res.send("ok");
+    let newUser = new mongooseModel(req.body);
+    newUser.save()
+    .then((data) => {
+        console.log(data)
+    })
+    .catch((err) => {
+
+    });
 }
 
 module.exports.userLogin = userLogin;

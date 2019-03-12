@@ -45,8 +45,8 @@ const userSchema = mongoose.Schema({
     "password": String,
     "email": String,
     "telephone": String,
-    "licenceNum": Number,
-    "destinations": Array,
+    "licenceNum": String,
+    "destinations": [String],
     "approved": {
         "type": Boolean,
         "default": false

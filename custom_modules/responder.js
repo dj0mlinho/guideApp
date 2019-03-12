@@ -21,6 +21,7 @@ function userLogin(req, res, mongooseModel) {
 
 function userRegistration(req, res, mongooseModel) {
 
+    // check if email already exists ?
     let newUser = new mongooseModel(req.body);
     newUser.save()
     .then((data) => {

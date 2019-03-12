@@ -2,31 +2,54 @@
 
 angular.module("guideApp")
     .controller("userStartCtrl", function ($scope, db, validator) {
+        // get destinatins from database
+
+
         // controlling login/register view show/hide
         $scope.userData = {
-            firstName: "",
-            lastName: "",
-            password: ""
+            "firstName": "",
+            "lastName": "",
+            "password": "",
+            "email": "",
+            "telephone": "",
+            "licenceNum": "",
+            "destinations": []
         };
     })
-    .directive("registerForm", ["$document", "db", function($document, db) {
+    .directive("registerForm", ["$document", "db", "validator", function($document, db, validator) {
         return {
 
             link : ($scope, element) => {
 
                 element.on("submit", (event) => {
                     event.preventDefault();
-                    // validation
-                    // let err = validation.isThereerr();
-                    // if (err) {
-                    //     // display error
-                    // } else {
-                    //     db.logReg();
-                    // }
-                    let action = event.explicitOriginalTarget.getAttribute("data-action");
-                    db.logReg(action, $scope.userData).then((res) => {
-                        console.log(res.data);
-                    })
+                    let err = validator.registrationCheck($scope.userData);
+                    if (err) {
+
+                    } else {
+                        // db.logReg("userRegistration", $scope.userData).then((res) => {
+                        //     console.log(res.data);
+                        // })
+                    }
+                })
+            }
+        };
+    }])
+    .directive("loginForm", ["$document", "db", "validator", function ($document, db, validator) {
+        return {
+
+            link: ($scope, element) => {
+
+                element.on("submit", (event) => {
+                    event.preventDefault();
+                    let err = validator.loginCheck();
+                    if (err) {
+
+                    } else {
+                        // db.logReg("userLogin", $scope.userData).then((res) => {
+                        //     console.log(res.data);
+                        // })
+                    }
                 })
             }
         };

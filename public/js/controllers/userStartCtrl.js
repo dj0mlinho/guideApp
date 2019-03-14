@@ -16,10 +16,10 @@ angular.module("guideApp")
             "destinations": []
         };
     })
-    .directive("registerForm", ["$document", "db", "validator", function($document, db, validator) {
+    .directive("registerForm", ["$document", "db", "validator", function ($document, db, validator) {
         return {
 
-            link : ($scope, element) => {
+            link: ($scope, element) => {
 
                 element.on("submit", (event) => {
                     event.preventDefault();
@@ -41,15 +41,25 @@ angular.module("guideApp")
             link: ($scope, element) => {
 
                 element.on("submit", (event) => {
-                    event.preventDefault();
-                    let err = validator.loginCheck();
-                    if (err) {
+                    /*                     event.preventDefault();
+                                        let err = validator.loginCheck();
+                                        if (err) {
 
-                    } else {
-                        // db.logReg("userLogin", $scope.userData).then((res) => {
-                        //     console.log(res.data);
-                        // })
-                    }
+                                        } else {
+                                            // db.logReg("userLogin", $scope.userData).then((res) => {
+                                            //     console.log(res.data);
+                                            // })
+                                        } */
+                    //design for errors
+                    $(document).ready(function () {
+                        $("#loginBtn").click(function () {
+                            $("#mailInput").attr('placeholder', '*Neispravna mejl adresa').addClass('placeholderColor')
+                            $("#passInput").attr('placeholder', '*Neispravna lozinka').addClass('placeholderColor')
+
+                            $("#mailInput").effect("shake");
+                            $("#passInput").effect("shake");
+                        })
+                    })
                 })
             }
         };

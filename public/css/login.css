@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
+
 html,
 body {
   background-image: url('img/wallpaper2.jpg');
@@ -43,6 +44,13 @@ body {
   position: absolute;
   right: 20px;
   top: -45px;
+}
+
+.placeholderColor::-webkit-input-placeholder {
+  color: #bc0b0b;
+  font-size: 13px;
+
+
 }
 
 .input-group-prepend span {

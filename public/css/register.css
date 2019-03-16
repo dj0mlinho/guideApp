@@ -4,9 +4,10 @@
 
 html,
 body {
-  background-image: url('img/wallpaper1.jpg');
+  background-image: url('img/bg (9).jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  transition: 3s;
   height: 100%;
   font-family: 'Numans', sans-serif;
 }

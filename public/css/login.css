@@ -5,8 +5,9 @@
 
 html,
 body {
-  background-image: url('img/wallpaper2.jpg');
+  background-image: url('img/bg (5).jpg');
   background-size: cover;
+  transition: 3s;
   background-repeat: no-repeat;
   height: 100%;
   font-family: 'Numans', sans-serif;

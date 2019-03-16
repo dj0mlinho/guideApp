@@ -12,7 +12,7 @@ angular.module("guideApp", [
         })
         .when("/register", {
             templateUrl: "pages/register.html",
-            controller: "userStartCtrl"
+            controller: "userRegisterCtrl"
         })
         .when("/admin", {
             templateUrl: "pages/adminStart.html",

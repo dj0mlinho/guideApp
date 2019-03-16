@@ -1,6 +1,5 @@
 <!-- CSS for this page -->
 <link rel="stylesheet" type="text/css" href="css/register.css">
-
 <div class="container">
   <div class="d-flex justify-content-center h-100">
     <!-- Register View BEGIN -->
@@ -19,39 +18,39 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="ime" ng-model="userData.firstName">
+            <input id="nameInput" type="text" class="form-control" placeholder="ime" ng-model="userData.firstName">
 
           </div>
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="prezime" ng-model="userData.lastName">
+            <input id="lastNameInput" type="text" class="form-control" placeholder="prezime" ng-model="userData.lastName">
 
           </div>
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input type="password" class="form-control" placeholder="lozinka" ng-model="userData.password">
+            <input id="passInput" type="password" class="form-control" placeholder="lozinka" ng-model="userData.password">
           </div>
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="e-mail" ng-model="userData.email">
+            <input id="mailInput" type="text" class="form-control" placeholder="e-mail" ng-model="userData.email">
           </div>
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="telefon" ng-model="userData.telephone">
+            <input id="telInput" type="text" class="form-control" placeholder="telefon" ng-model="userData.telephone">
           </div>
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="broj licence" ng-model="userData.licenceNum">
+            <input id="licenceInput" type="text" class="form-control" placeholder="broj licence" ng-model="userData.licenceNum">
           </div>
           <div class="input-group form-group">
             <select ng-model="userData.destinations" placeholder="destinacije" multiple>
@@ -69,12 +68,12 @@
             <input type="checkbox">Zapamti me
           </div>
           <div class="form-group">
-            <input type="submit" value="Registruj se" class="btn float-right login_btn">
-          </div>
-          <div class="form-group">
-            <a href="#/" class="btn float-left login_btn btn-sm btn-success">Uloguj se</a>
-          </div>
+            <input id="regBtn" type="submit" value="Registruj se" class="regBtn btn float-right login_btn">
+            <a href="#/" class="btn float-left login_btn btn-sm btn-success">
+              -- Uloguj se</a> </div>
         </form>
+      </div>
+      <div class="card-footer">
       </div>
     </div>
     <!-- Register View END -->

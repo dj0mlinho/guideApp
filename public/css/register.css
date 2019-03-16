@@ -4,8 +4,8 @@
 
 html,
 body {
-  background-image: url('img/bg (9).jpg');
   background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   transition: 3s;
   height: 100%;
@@ -18,8 +18,7 @@ body {
 }
 
 .card {
-  height: 370px;
-  margin-top: auto;
+  margin-top: 100px;
   margin-bottom: auto;
   width: 400px;
   background-color: rgba(0, 0, 0, 0.5) !important;
@@ -39,6 +38,11 @@ body {
 .card-header h3 {
   color: white;
 }
+
+.regBtn {
+  font-size: 12px;
+}
+
 
 .social_icon {
   position: absolute;
@@ -87,4 +91,11 @@ input:focus {
 
 .links a {
   margin-left: 4px;
+}
+
+.placeholderColor::-webkit-input-placeholder {
+  color: #bc0b0b;
+  font-size: 13px;
+
+
 }

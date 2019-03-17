@@ -1,4 +1,41 @@
 body{
-    background-color: ghostwhite ;
-    background-image: none ;
+    background: url('img/jobsbg.jpg');
+}
+
+.card-body {
+    box-shadow: 8px 2px 8px ;
+    border-radius: 10px;
+    transition: transform 1.5s; 
+    background-color: white ;
+    
+}
+
+.card-body:hover {
+    transform: scale(1.1); 
+    background-color: rgba(178, 185, 190, 0.877) ;
+    transition: background-color 1000ms linear;
+  }
+
+.jumbotron {
+  background-color: rgba(192, 192, 192, 0.65) ;
+  max-height: 25vh;
+  box-shadow: 8px 2px 8px ;
+}
+
+#searchField{
+    border-radius: 10px;
+    background-color: whitesmoke ;
+    margin-top: -20px ;
+}
+
+.text-muted{
+    color: red !important;
+}
+
+.display-4 {
+    font-weight: 500;
+}
+
+#timeSpan{
+    color: red ;
 }

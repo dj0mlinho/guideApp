@@ -10,9 +10,8 @@ const responder = require("./custom_modules/responder.js");
 
 
 const app = express();
-// express middlewares for responses
+// request middlewares
 app.use(express.static(__dirname + "/public"));
-// body-parser middleware for parsing JSON 
 app.use(bodyParser.json());
 
 
@@ -30,11 +29,12 @@ mongoose.connect(url,
         dbName: "guideApp"
     }).then((connection) => {
     if (connection) {
+        // connection success
         console.log("Connected to mongoDb");
     }
 }, (err) => {
     if (err) {
-        // error handling back to frontend ???????????????
+        //* error handling back to frontend 
         console.log("An error occured while connecting to mongoDb " + err);
     }
 });
@@ -51,6 +51,7 @@ const userSchema = mongoose.Schema({
         "type": Boolean,
         "default": false
     },
+    // return -1 hour
     "registerDate": {
         "type": Date,
         "default": Date.now
@@ -67,7 +68,7 @@ const AdminModel = mongoose.model("admins", adimnSchema);
 // login/registration requests
 app.post("/userLogin", (req, res) => {
 
-    responder.userLogin(req, res, userModel, mongoose);
+    responder.userLogin(req, res, UserModel);
 });
 app.post("/userRegistration", (req, res) => {
     

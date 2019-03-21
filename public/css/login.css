@@ -51,8 +51,6 @@ body {
 .placeholderColor::-webkit-input-placeholder {
   color: #bc0b0b;
   font-size: 13px;
-
-
 }
 
 .input-group-prepend span {
@@ -96,4 +94,18 @@ input:focus {
 
 .links a {
   margin-left: 4px;
+}
+
+.log-reg-error {
+
+  width: 100% !important;
+  background-color: red !important;
+  color: white !important;
+  text-align: center !important;
+  border-radius: 6px !important;
+  padding: 5px 5px !important;
+  font-size: 12px !important;
+  margin-left: -20px !important;
+  white-space: nowrap !important;
+  display: none;
 }

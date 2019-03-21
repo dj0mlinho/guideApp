@@ -5,7 +5,7 @@ angular.module("guideApp")
 
         // CHANGE BACKGROUNDS
         let images = ['bg (1)', 'bg (2)', 'bg (3)', 'bg (4)', 'bg (5)', 'bg (6)', 'bg (7)', 'bg (8)', 'bg (9)', 'bg (10)', 'bg (11)', 'bg (12)', 'bg (13)', 'bg (14)', 'bg (15)', 'bg (16)', 'bg (17)', 'bg (18)', 'bg (19)', 'bg (20)', 'bg (21)', 'bg (22)', 'bg (23)', 'bg (24)', 'bg (25)', 'bg (26)']
-        document.querySelector('body').style.backgroundImage = "url('css/img/" + images[getRandomInt()] + ".jpg')"
+        document.querySelector('body').style.backgroundImage = "url('css/img/" + images[getRandomInt()] + ".jpg')";
 
         function getRandomInt() {
             return Math.floor(Math.random() * images.length);
@@ -20,47 +20,54 @@ angular.module("guideApp")
 
 
 
-        // get destinatins from database
         // controlling login/register view show/hide
         $scope.userData = {
-            "firstName": "",
-            "lastName": "",
-            "password": "",
             "email": "",
-            "telephone": "",
-            "licenceNum": "",
-            "destinations": []
+            "password": ""
         };
     })
-    .directive("loginForm", ["$document", "db", "validator", function ($document, db, validator) {
+    .directive("loginForm", ["$document", "$rootScope", "db", "validator", function ($document, $rootScope, db, validator) {
         return {
 
             link: ($scope, element) => {
 
                 element.on("submit", (event) => {
-                    /*                     event.preventDefault();
-                                        let err = validator.loginCheck();
-                                        if (err) {
-
-                                        } else {
-                                            // db.logReg("userLogin", $scope.userData).then((res) => {
-                                            //     console.log(res.data);
-                                            // })
-                                        } */
-                    //design for errors
-                    $(document).ready(function () {
-                        $("#loginBtn").click(function () {
-                            if ($("#mailInput").val() == '') {
-                                $("#mailInput").attr('placeholder', '*Neispravna mejl adresa').addClass('placeholderColor');
-                                $("#mailInput").effect("shake");
+                    event.preventDefault();
+                    let err = validator.logRegCheck($scope.userData);
+                    if (err.length) {
+                        // display error to user
+                        for (let i = 0; i < err.length; i++) {
+                            let prop;
+                            for (prop in err[i]) {
+                                $(prop)
+                                .val("")
+                                .attr({
+                                    placeholder: err[i][prop]
+                                })
+                                //***  not working
+                                .addClass("placeholderColor")
+                                .effect("shake");
+                                //***  select destinations
+                                //***  zapamti me cookie
                             }
-                            if ($("#passInput").val() == '') {
-                                $("#passInput").attr('placeholder', '*Neispravna lozinka').addClass('placeholderColor')
-                                $("#passInput").effect("shake");
+                        }
+                    } else {
+                        db.logReg("userLogin", $scope.userData)
+                        .then((res) => {
+                            if (typeof res.data === "string") {
+                                // error display
+                                $(".log-reg-error")
+                                    .html(res.data)
+                                    .css("display", "inline")
+                                    .effect("shake");
+                            } else {
+                                // remember logged user credidentials
+                                $rootScope.loggedUser = res.data;
+                                location.assign("#/jobs");
                             }
-                        })
-                    })
-                })
+                        });
+                    }
+                });
             }
         };
     }]);

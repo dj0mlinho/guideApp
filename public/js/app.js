@@ -22,4 +22,29 @@ angular.module("guideApp", [
             templateUrl: "pages/jobs.html",
             controller: "jobsCtrl"
         });
+})
+.run(function ($rootScope) {
+    
+    $rootScope.loggedUser = {};
+    $rootScope.pageTitle;
+
+    $rootScope.$on("$locationChangeStart", function(event, current, next) {
+
+        let route = next.split("#")[1];
+
+        switch (route) {
+
+            case "/":
+                $rootScope.pageTitle = "Login";
+                break;
+            case "/register":
+                $rootScope.pageTitle = "Registracija";
+                break;               
+            case "/jobs":
+                $rootScope.pageTitle = "Ture/Ponuda";
+                break;                 
+             default:
+                break;   
+        }
+    });
 });

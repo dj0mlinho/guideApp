@@ -96,6 +96,20 @@ input:focus {
 .placeholderColor::-webkit-input-placeholder {
   color: #bc0b0b;
   font-size: 13px;
-
-
 }
+
+.log-reg-error {
+
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    font-size: 12px;
+    margin-left: -20px;
+    white-space: nowrap;
+    display: none;
+}
+
+

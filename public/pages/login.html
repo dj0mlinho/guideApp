@@ -12,6 +12,7 @@
           <span><i class="fab fa-google-plus-square"></i></span>
           <span><i class="fab fa-twitter-square"></i></span>
         </div>
+        <span class="log-reg-error"></span>
       </div>
       <div class="card-body">
         <form login-form>
@@ -19,14 +20,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input id="mailInput" type="email" class="form-control" placeholder="korisnički e-mail">
+            <input id="mailInput" type="text" class="form-control" placeholder="korisnički e-mail" ng-model="userData.email">
 
           </div>
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input id="passInput" type="password" class="form-control" placeholder="lozinka">
+            <input id="passInput" type="password" class="form-control" placeholder="lozinka" ng-model="userData.password">
           </div>
           <div class="row align-items-center remember">
             <input type="checkbox">Zapamti me
